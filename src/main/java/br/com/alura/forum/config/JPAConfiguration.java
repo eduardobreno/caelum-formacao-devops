@@ -32,24 +32,24 @@ public class JPAConfiguration {
 
 	/* DATASOURCE DE DESENVOLVIMENTO */ 
 	
-//	  @Bean public DataSource dataSource() { DriverManagerDataSource dataSource =
-//	  new DriverManagerDataSource();
-//	  dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-//	  dataSource.setUrl("jdbc:mysql://localhost:3306/alura_forum?useSSL=false");
-//	  dataSource.setUsername("root"); dataSource.setPassword(""); return
-//	  dataSource; }
+	  @Bean public DataSource dataSource() { DriverManagerDataSource dataSource =
+	  new DriverManagerDataSource();
+	  dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+	  dataSource.setUrl("jdbc:mysql://localhost:3306/alura_forum?useSSL=false");
+	  dataSource.setUsername("root"); dataSource.setPassword(""); return
+	  dataSource; }
 	 
 
 	/* DATASOURCE DE PRODUCAO */
-	@Bean
-	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://18.228.9.110:3306/alura_forum?useSSL=false");
-		dataSource.setUsername("alura");
-		dataSource.setPassword("qwerty123");
-		return dataSource;
-	}
+//	@Bean
+//	public DataSource dataSource() {
+//		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+//		dataSource.setUrl("jdbc:mysql://18.228.9.110:3306/alura_forum?useSSL=false");
+//		dataSource.setUsername("alura");
+//		dataSource.setPassword("qwerty123");
+//		return dataSource;
+//	}
 	
 	
 	@Bean

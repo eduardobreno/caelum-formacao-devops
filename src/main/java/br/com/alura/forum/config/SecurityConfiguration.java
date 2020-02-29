@@ -25,6 +25,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		http.csrf()
 		.and().authorizeRequests()
 		.antMatchers(HttpMethod.GET, "/").permitAll()
+		.antMatchers(HttpMethod.GET, "/home").permitAll()
 		.antMatchers(HttpMethod.GET, "/topicos").permitAll()
 		.antMatchers(HttpMethod.GET, "/topicos/novo").authenticated()
 		.antMatchers(HttpMethod.GET, "/topicos/*").permitAll()
