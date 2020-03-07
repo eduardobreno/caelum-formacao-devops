@@ -1,0 +1,26 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('Build & Test') {
+         steps {
+            git 'https://github.com/eduardobreno/caelum-formacao-devops.git'
+
+            sh "mvn clean package"
+
+            sh "chmod 400 infra/ssh-keys/id_rsa"
+            
+            sh 'scp -o StrictHostKeyChecking=no -i infra/ssh-keys/id_rsa target/alura-forum-0.0.1-SNAPSHOT.war vagrant@192.168.50.12:/home/vagrant/alura-forum.war'
+            
+            sh "ssh -o StrictHostKeyChecking=no -i infra/ssh-keys/id_rsa vagrant@192.168.50.12 'sudo mv /home/vagrant/alura-forum.war /var/lib/tomcat8/webapps/alura-forum.war'"
+
+         }
+      }
+   }
+   
+    post {
+        success {
+            archiveArtifacts 'target/*.war'
+        }
+    }
+}
